@@ -85,7 +85,7 @@ Data is stored in memory (non-persistent hash map)
 👥 Authentication using Internet Identity
 🙋‍♂️ Author
 
-Built with ❤️ by Shannu
+Built with ❤️ by Sasank
 Contributions, stars, and feedback are welcome!
 
 📜 License
