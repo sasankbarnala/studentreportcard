@@ -1,61 +1,93 @@
-# `student_dapp`
+📘 Student Report Card DApp
 
-Welcome to your new `student_dapp` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+A decentralized web application (DApp) built using the Internet Computer Protocol (ICP), designed to manage student performance records. Users can add, update, and delete student information, calculate average scores and grades, and generate clean, downloadable PDF report cards.
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+🔐 Powered by Internet Computer (DFINITY), secured and hosted on the blockchain.
+🧠 About the Project
 
-To learn more before you start working with `student_dapp`, see the following documentation available online:
+This project aims to provide a simple yet powerful decentralized system to track student academic performance in real-time. By leveraging Rust and React, the app integrates a robust backend with an interactive frontend. The PDF generation allows for offline portability and professional documentation of performance.
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Rust Canister Development Guide](https://internetcomputer.org/docs/current/developer-docs/backend/rust/)
-- [ic-cdk](https://docs.rs/ic-cdk)
-- [ic-cdk-macros](https://docs.rs/ic-cdk-macros)
-- [Candid Introduction](https://internetcomputer.org/docs/current/developer-docs/backend/candid/)
+✨ Key Features
 
-If you want to start working on your project right away, you might want to try the following commands:
+✅ Add or update student data (Name, Marks, Subjects)
+❌ Delete individual student records
+📊 Automatic grade calculation based on average score
+🔠 Alphabetically sorted student list for better readability
+📄 Auto-generated PDF report cards, one per student
+📷 Includes screenshot and screen recording of the DApp
+🎨 Simple, responsive, and accessible UI
+🖼 Preview
 
-```bash
-cd student_dapp/
-dfx help
-dfx canister --help
-```
+📷 Screenshot
+🎥 Screen Recording
+Watch Demo
 
-## Running the project locally
+🧰 Tech Stack
 
-If you want to test your project locally, you can use the following commands:
+Layer	Tech
+Frontend	React.js, JavaScript, jsPDF
+Backend	Rust, Candid, ic-cdk, Wasm
+Deployment	DFX CLI, Internet Computer Canisters
+Tools	Visual Studio Code, Git, npm
 
-```bash
-# Starts the replica, running in the background
+🏁 Getting Started
+
+📦 Prerequisites
+Make sure you have the following installed:
+
+Node.js & npm
+DFX SDK
+Rust & Cargo
+# Install WebAssembly target
+rustup target add wasm32-unknown-unknown
+
+# Optionally install cargo-audit (for security auditing)
+cargo install cargo-audit
+🚀 Setup & Run
+# Clone the repo
+git clone https://github.com/your-username/student-report-card-dapp.git
+cd student-report-card-dapp
+
+# Install frontend dependencies
+npm install
+
+# Start local replica
 dfx start --background
 
-# Deploys your canisters to the replica and generates your candid interface
+# Deploy canisters
 dfx deploy
-```
+Open the app at: http://localhost:4943
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
+🖨 PDF Report Generation
 
-If you have made changes to your backend canister, you can generate a new candid interface with
+Each student gets a clean, styled PDF report card including:
 
-```bash
-npm run generate
-```
+📌 Name
+✍️ Total Marks
+📚 Subjects
+📈 Average Marks
+🏅 Grade (A–D based on performance)
+Use the Download PDF Report Cards button to export all student reports.
 
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
+🗃 Backend Logic
 
-If you are making frontend changes, you can start a development server with
+The backend is implemented in Rust and handles:
 
-```bash
-npm start
-```
+add_student: Insert/update student entry
+list_students: Retrieve all student data
+delete_student: Remove a student
+Data is stored in memory (non-persistent hash map)
+💡 Future Improvements
 
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
+🔒 Persistent storage using stable memory
+🧠 Smart grading logic with feedback
+📬 Emailing PDF reports
+👥 Authentication using Internet Identity
+🙋‍♂️ Author
 
-### Note on frontend environment variables
+Built with ❤️ by Shannu
+Contributions, stars, and feedback are welcome!
 
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
+📜 License
 
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
+This project is open-source and available under the MIT License.

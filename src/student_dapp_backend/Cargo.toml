@@ -3,12 +3,15 @@ name = "student_dapp_backend"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
+serde = { version = "1.0", features = ["derive"] }
 candid = "0.10"
-ic-cdk = "0.17"
-ic-cdk-timers = "0.11" # Feel free to remove this dependency if you don't need timers
+
+# Use the latest stable compatible versions
+ic-cdk = "0.18"
+ic-cdk-macros = "0.18"
+
+thiserror = "1.0"
